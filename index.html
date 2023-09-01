@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./assets/main.css" />
+    <link rel="stylesheet" href="./assets/header.css" />
+    <link rel="stylesheet" href="./assets/nav.css" />
+    <link rel="stylesheet" href="./assets/cart.css" />
+    <link rel="stylesheet" href="./assets/mediaQuery.css" />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="max-w-container">
+      <img data-burger class="burger" src="./images/icon-menu.svg" />
+      <img class="logo" src="./images/logo.svg" />
+      <!-- mobile-device nav-->
+      <nav class="nav-fixed">
+        <div class="link-wrapper">
+          <img
+            class="close-btn"
+            src="./images/icon-close.svg"
+            alt="close-btn"
+          />
+          <a href="#">Collections</a>
+          <a href="#">Men</a>
+          <a href="#">Women</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+      </nav>
+
+      <!-- mobile-device desktop-->
+      <nav class="nav-links">
+        <a href="#">Collections</a>
+        <a href="#">Men</a>
+        <a href="#">Women</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div data-notif-count="0" class="cart-icon-container">
+        <img class="cart" src="./images/icon-cart.svg" />
+        <div class="beforesana">1</div>
+      </div>
+
+      <img class="profile" src="./images/image-avatar.png" />
+    </header>
+
+    <main class="max-w-container">
+      <!-- cart -->
+      <div data-cart class="cart-wrapper">
+        <h3>Cart</h3>
+        <h4 data-empty>Your cart is empty.</h4>
+        <div class="cart-i-container"></div>
+        <div data-checkout class="btn-wrapper checkout__btn">Checkout</div>
+      </div>
+      <!-- image-slider  -->
+      <div class="slider-wrapper">
+        <div data-sc-btns>
+          <img
+            data-sbtns="next"
+            src="./images/icon-next.svg"
+            class="s-btn next-btn-slider"
+          />
+          <img src="./images/icon-previous.svg" class="s-btn prev-btn-slider" />
+        </div>
+        <div data-sliderimages>
+          <img
+            data-active-pr
+            class="pr-img"
+            src="./images/image-product-1.jpg"
+            alt="image-product-1"
+          />
+          <img
+            class="pr-img"
+            src="./images/image-product-2.jpg"
+            alt="image-product-2"
+          />
+          <img
+            class="pr-img"
+            src="./images/image-product-3.jpg"
+            alt="image-product-3"
+          />
+        </div>
+      </div>
+
+      <section>
+        <h1>Sneaker Company</h1>
+        <h2>Fall Limited Edition Sneakers</h2>
+        <p>
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+
+        <div class="current-price-wrapper">
+          <h2>$125.00</h2>
+          <div class="discount">50%</div>
+          <div class="total-price">$250.00</div>
+        </div>
+
+        <div class="quantity-container">
+          <img class="minus" src="./images/icon-minus.svg" alt="decrement" />
+          <div data-quantity-val class="curr-qt">0</div>
+          <img class="add" src="./images/icon-plus.svg" alt="increment" />
+        </div>
+        <div data-addtocartbtn="1" class="btn-wrapper">
+          <img src="./images/icon-cart-white.svg" height="12px" alt="cart" />
+          <div>Add to cart</div>
+        </div>
+      </section>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">CallmeSauce</a>.
+    </div>
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
