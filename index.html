@@ -9,7 +9,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./images/favicon-32x32.png"
+      href="./assets/images/favicon-32x32.png"
     />
 
     <title>Frontend Mentor | E-commerce product page</title>
@@ -18,11 +18,11 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="./assets/main.css" />
-    <link rel="stylesheet" href="./assets/header.css" />
-    <link rel="stylesheet" href="./assets/nav.css" />
-    <link rel="stylesheet" href="./assets/cart.css" />
-    <link rel="stylesheet" href="./assets/mediaQuery.css" />
+    <link rel="stylesheet" href="./app/main.css" />
+    <link rel="stylesheet" href="./app/header.css" />
+    <link rel="stylesheet" href="./app/nav.css" />
+    <link rel="stylesheet" href="./app/cart.css" />
+    <link rel="stylesheet" href="./app/mediaQuery.css" />
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
@@ -37,14 +37,14 @@
   </head>
   <body>
     <header class="max-w-container">
-      <img data-burger class="burger" src="./images/icon-menu.svg" />
-      <img class="logo" src="./images/logo.svg" />
+      <img data-burger class="burger" src="./assets/images/icon-menu.svg" />
+      <img class="logo" src="./assets/images/logo.svg" />
       <!-- mobile-device nav-->
       <nav class="nav-fixed">
         <div class="link-wrapper">
           <img
             class="close-btn"
-            src="./images/icon-close.svg"
+            src="./assets/images/icon-close.svg"
             alt="close-btn"
           />
           <a href="#">Collections</a>
@@ -64,11 +64,11 @@
         <a href="#">Contact</a>
       </nav>
       <div data-notif-count="0" class="cart-icon-container">
-        <img class="cart" src="./images/icon-cart.svg" />
+        <img class="cart" src="./assets/images/icon-cart.svg" />
         <div class="beforesana">1</div>
       </div>
 
-      <img class="profile" src="./images/image-avatar.png" />
+      <img class="profile" src="./assets/images/image-avatar.png" />
     </header>
 
     <main class="max-w-container">
@@ -84,26 +84,29 @@
         <div data-sc-btns>
           <img
             data-sbtns="next"
-            src="./images/icon-next.svg"
+            src="./assets/images/icon-next.svg"
             class="s-btn next-btn-slider"
           />
-          <img src="./images/icon-previous.svg" class="s-btn prev-btn-slider" />
+          <img
+            src="./assets/images/icon-previous.svg"
+            class="s-btn prev-btn-slider"
+          />
         </div>
         <div data-sliderimages>
           <img
             data-active-pr
             class="pr-img"
-            src="./images/image-product-1.jpg"
+            src="./assets/images/image-product-1.jpg"
             alt="image-product-1"
           />
           <img
             class="pr-img"
-            src="./images/image-product-2.jpg"
+            src="./assets/images/image-product-2.jpg"
             alt="image-product-2"
           />
           <img
             class="pr-img"
-            src="./images/image-product-3.jpg"
+            src="./assets/images/image-product-3.jpg"
             alt="image-product-3"
           />
         </div>
@@ -125,12 +128,24 @@
         </div>
 
         <div class="quantity-container">
-          <img class="minus" src="./images/icon-minus.svg" alt="decrement" />
+          <img
+            class="minus"
+            src="./assets/images/icon-minus.svg"
+            alt="decrement"
+          />
           <div data-quantity-val class="curr-qt">0</div>
-          <img class="add" src="./images/icon-plus.svg" alt="increment" />
+          <img
+            class="add"
+            src="./assets/images/icon-plus.svg"
+            alt="increment"
+          />
         </div>
         <div data-addtocartbtn="1" class="btn-wrapper">
-          <img src="./images/icon-cart-white.svg" height="12px" alt="cart" />
+          <img
+            src="./assets/images/icon-cart-white.svg"
+            height="12px"
+            alt="cart"
+          />
           <div>Add to cart</div>
         </div>
       </section>
@@ -142,6 +157,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">CallmeSauce</a>.
     </div>
-    <script src="./assets/script.js"></script>
+    <script src="./app/script.js"></script>
   </body>
 </html>

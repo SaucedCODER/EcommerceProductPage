@@ -1,0 +1,40 @@
+header{
+  display: flex;
+  padding: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header img{
+  cursor: pointer;
+}
+header .burger{
+
+height: 20px;
+}
+header .logo{
+  margin:0 1.5rem;
+}
+
+.cart-icon-container{
+  margin-right: 1em;
+  position:relative;
+}
+header .cart-icon-container .beforesana{
+  font-size: 9px;
+  width: 15px;
+  height: 11px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  background-color: orange;
+  position:absolute;
+  top:-5px;
+  border-radius: 5vmax;
+  right: -4px;
+  box-shadow: 0px 0px 2px rgb(253, 81, 1);
+  display:none;
+}
+header .profile{
+height: 2rem;
+}
