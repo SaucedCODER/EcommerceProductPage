@@ -1,0 +1,102 @@
+.modal-container {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.695);
+    display: none;
+    place-items: center;
+    z-index:2;
+  
+  }
+ 
+  .modal-content{
+    max-width: 500px;
+    width: 100%;
+    object-fit: fill;
+object-position: center center;
+border-radius: 10px;
+cursor: pointer;
+display: flex;
+flex-direction: column;
+position: relative;
+  }
+  .modal-content img{
+    object-fit: fill;
+object-position: center center;
+width: 100%;
+border-radius: 10px;
+cursor: pointer;
+  }
+  .modal-slider-btn{
+    position: absolute;
+width: 50px !important;
+height: 50px !important;
+background-color: #fff;
+border-radius: 50%;
+top: 50%;
+object-fit:scale-down !important;
+cursor: pointer;
+transform: translateY(-150%);
+transition: box-shadow 200ms;
+z-index: 10;
+  }
+  .modal-slider-btn:hover{
+box-shadow: 1px 1px 9px rgb(61, 61, 61);
+
+  }
+  .modal-container .next-btn-slider{
+right: -5%;
+border-radius: 50%;
+}
+.modal-container .prev-btn-slider{
+left: -5%;
+border-radius: 50%;
+}
+
+.big-product-img-container-modal {
+height: 55vh;
+position: relative;
+background-color: var(--Orange);
+border-radius: 10px;
+z-index: -1;
+margin-bottom: 2rem;
+
+}
+.big-product-img-container-modal img {
+position: absolute;
+height: 100%;
+inset: 0;
+opacity: 0;
+transition: opacity 500ms ease-in-out;
+
+}
+.thumbnails-img-container-modal img{
+
+width: 100px;
+}
+.thumbnails-img-container-modal {
+display: grid;
+grid-template-columns: repeat(4, minmax(100px, auto));
+gap: 2rem;
+justify-content: center;
+}
+.thumbnails-img-container-modal img:hover {
+outline: 3px solid var(--Orange);
+filter:brightness(120%)
+}
+.big-product-img-container-modal img[data-active-pr] {
+opacity: 1 !important;
+z-index: 2;
+}
+.thumbnails-img-container-modal img[data-active-thumb] {
+filter:brightness(120%);
+outline: 3px solid var(--Orange);
+}
+.modal-content .close-modal{
+margin-left: auto;
+margin-right:1rem ;
+margin-bottom: .5rem;
+}
+.modal-content .close-modal:hover path{
+fill: #FFA500 ;
+
+}

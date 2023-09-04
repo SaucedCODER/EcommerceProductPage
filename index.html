@@ -22,6 +22,16 @@
     <link rel="stylesheet" href="./app/header.css" />
     <link rel="stylesheet" href="./app/nav.css" />
     <link rel="stylesheet" href="./app/cart.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./app/desktop-product-slider-styles.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./app/modalDesign.css"
+    />
     <link rel="stylesheet" href="./app/mediaQuery.css" />
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -79,8 +89,8 @@
         <div class="cart-i-container"></div>
         <div data-checkout class="btn-wrapper checkout__btn">Checkout</div>
       </div>
-      <!-- image-slider  -->
-      <div class="slider-wrapper">
+      <!-- image-slider for mobile-->
+      <div id="slider-wrapper-mobile" class="slider-wrapper">
         <div data-sc-btns>
           <img
             data-sbtns="next"
@@ -109,48 +119,180 @@
             src="./assets/images/image-product-3.jpg"
             alt="image-product-3"
           />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-4.jpg"
+            alt="image-product-4"
+          />
+        </div>
+      </div>
+
+      <!-- image-slider for none mobile-->
+      <div class="slider-wrapper-none-mobile">
+        <div data-sliderimages class="big-product-img-container" >
+          <img
+            data-active-pr
+            class="pr-img"
+            src="./assets/images/image-product-1.jpg"
+            alt="image-product-1"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-2.jpg"
+            alt="image-product-2"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-3.jpg"
+            alt="image-product-3"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-4.jpg"
+            alt="image-product-4"
+          />
+        </div>
+
+        <div class="thumbnails-img-container">
+          <img
+            data-active-thumb
+            class="pr-img"
+            src="./assets/images/image-product-1-thumbnail.jpg"
+            alt="image-product-1"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-2-thumbnail.jpg"
+            alt="image-product-2"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-3-thumbnail.jpg"
+            alt="image-product-3"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-4-thumbnail.jpg"
+            alt="image-product-4"
+          />
         </div>
       </div>
 
       <section>
-        <h1>Sneaker Company</h1>
-        <h2>Fall Limited Edition Sneakers</h2>
-        <p>
-          These low-profile sneakers are your perfect casual wear companion.
-          Featuring a durable rubber outer sole, they’ll withstand everything
-          the weather can offer.
-        </p>
+        <div class="top-text">
+          <h1>Sneaker Company</h1>
+          <h2>Fall Limited Edition Sneakers</h2>
+          <p>
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they’ll withstand everything
+            the weather can offer.
+          </p>
 
-        <div class="current-price-wrapper">
-          <h2>$125.00</h2>
-          <div class="discount">50%</div>
-          <div class="total-price">$250.00</div>
+          <div class="current-price-wrapper">
+            <h2>$125.00</h2>
+            <div class="discount">50%</div>
+            <div class="total-price">$250.00</div>
+          </div>
         </div>
-
-        <div class="quantity-container">
-          <img
-            class="minus"
-            src="./assets/images/icon-minus.svg"
-            alt="decrement"
-          />
-          <div data-quantity-val class="curr-qt">0</div>
-          <img
-            class="add"
-            src="./assets/images/icon-plus.svg"
-            alt="increment"
-          />
-        </div>
-        <div data-addtocartbtn="1" class="btn-wrapper">
-          <img
-            src="./assets/images/icon-cart-white.svg"
-            height="12px"
-            alt="cart"
-          />
-          <div>Add to cart</div>
+        <div class="funtional-section">
+          <div class="quantity-container">
+            <img
+              class="minus"
+              src="./assets/images/icon-minus.svg"
+              alt="decrement"
+            />
+            <div data-quantity-val class="curr-qt">0</div>
+            <img
+              class="add"
+              src="./assets/images/icon-plus.svg"
+              alt="increment"
+            />
+          </div>
+          <div data-addtocartbtn="1" class="btn-wrapper">
+            <img
+              src="./assets/images/icon-cart-white.svg"
+              height="12px"
+              alt="cart"
+            />
+            <div>Add to cart</div>
+          </div>
         </div>
       </section>
     </main>
+    <style>
+    
+    </style>
+    <!-- Modal Container -->
+    <div id="myModal" class="modal-container">
+      <!-- Modal Content -->
+      <div class="modal-content">
+        <svg width="20" height="25" xmlns="http://www.w3.org/2000/svg" id="my-svg" class="close-modal" onclick="closeModal()">
+          <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="hsl(26, 100%, 55%)" fill-rule="evenodd"/>
+        </svg>
+        
 
+        <div data-sc-btns>
+          <img
+            data-sbtns="next"
+            src="./assets/images/icon-next.svg"
+            class="modal-slider-btn next-btn-slider"
+          />
+          <img
+            src="./assets/images/icon-previous.svg"
+            class="modal-slider-btn prev-btn-slider"
+          />
+        </div>
+        <div data-sliderimages class="big-product-img-container-modal">
+          <img
+            data-active-pr
+            class="pr-img"
+            src="./assets/images/image-product-1.jpg"
+            alt="image-product-1"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-2.jpg"
+            alt="image-product-2"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-3.jpg"
+            alt="image-product-3"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-4.jpg"
+            alt="image-product-4"
+          />
+        </div>
+
+        <div class="thumbnails-img-container-modal">
+          <img
+            data-active-thumb
+            class="pr-img"
+            src="./assets/images/image-product-1-thumbnail.jpg"
+            alt="image-product-1"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-2-thumbnail.jpg"
+            alt="image-product-2"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-3-thumbnail.jpg"
+            alt="image-product-3"
+          />
+          <img
+            class="pr-img"
+            src="./assets/images/image-product-4-thumbnail.jpg"
+            alt="image-product-4"
+          />
+        </div>
+      </div>
+      </div>
+    </div>
+    
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"

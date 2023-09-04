@@ -1,24 +1,24 @@
 //burger code
 const burger = document.querySelector("[data-burger]");
-const linkwrapper = document.querySelector(".link-wrapper");
+const linkWrapper = document.querySelector(".link-wrapper");
 const nav = document.querySelector("nav");
 const closenav = document.querySelector(".close-btn");
 
 burger.addEventListener("click", () => {
-  linkwrapper.classList.toggle("open-4navchild");
+  linkWrapper.classList.toggle("open-4navchild");
   nav.classList.toggle("open-4nav");
 });
 closenav.addEventListener("click", () => {
-  linkwrapper.classList.toggle("open-4navchild");
+  linkWrapper.classList.toggle("open-4navchild");
   nav.classList.toggle("open-4nav");
 });
 
 // cart toggling
-const cart_container = document.querySelector("[data-cart]");
-const cartbtn = document.querySelector(".cart");
-cartbtn.addEventListener("click", cartbtntoggling);
+const cartContainer = document.querySelector("[data-cart]");
+const cartBtn = document.querySelector(".cart");
+cartBtn.addEventListener("click", cartbtntoggling);
 function cartbtntoggling() {
-  cart_container.classList.toggle("cart-visible");
+  cartContainer.classList.toggle("cart-visible");
 }
 // quantity changes code
 const quan_container = document.querySelector(".quantity-container");
@@ -34,48 +34,48 @@ quan_btns.forEach((qbtn) => {
   });
 });
 //add to cart codes
-const addcartbtn_el = document.querySelector("[data-addtocartbtn]");
-addcartbtn_el.addEventListener("click", addtocart);
+const addCartEl = document.querySelector("[data-addtocartbtn]");
+addCartEl.addEventListener("click", addtocart);
 function addtocart(e) {
-  let item_id = e.currentTarget.dataset.addtocartbtn;
-  const cart_icontainer = document.querySelector(".cart-i-container");
-  const iquantity = document.querySelector("[data-quantity-val]");
-  let cart_item_el = document.createElement("div");
-  cart_item_el.classList.add(`cart-item-${item_id}`, "cart-items");
+  let id = e.currentTarget.dataset.addtocartbtn;
+  const cartContainer = document.querySelector(".cart-i-container");
+  const quantityEl = document.querySelector("[data-quantity-val]");
+  let cartItemEl = document.createElement("div");
+  cartItemEl.classList.add(`cart-item-${id}`, "cart-items");
 
-  if (iquantity.innerText === "0") {
+  if (quantityEl.innerText === "0") {
     alert("Warning: Please put some quantity!");
   } else {
-    const total = 250.0 * parseInt(iquantity.innerText);
+    const total = 250.0 * parseInt(quantityEl.innerText);
 
-    cart_item_el.innerHTML = `
+    cartItemEl.innerHTML = `
     <img src="./assets/images/image-product-1.jpg" alt="pr-img" />
     <div class="c-item-details">
       <strong>Autumn Limited Edition</strong>
       <span class="price">$250.00</span>
       &times
-      <span class="i-quantity">${iquantity.innerText}</span>
+      <span class="i-quantity">${quantityEl.innerText}</span>
       <span class="i-total">$${total}</span>
     </div>
     <img data-del-btn src="./assets/images/icon-delete.svg" alt="del" />
       `;
 
-    cart_icontainer.append(cart_item_el);
-    iquantity.innerText = 0;
-    let updatedid = parseInt(item_id) + 1;
+    cartContainer.append(cartItemEl);
+    quantityEl.innerText = 0;
+    let updatedid = parseInt(id) + 1;
     e.currentTarget.dataset.addtocartbtn = updatedid;
   }
   updatethecart();
 }
 //remove btn code
-const cart_icontainerorig = document.querySelector(".cart-i-container");
-cart_icontainerorig.addEventListener("click", surenadelete);
+const mainCartContainer = document.querySelector(".cart-i-container");
+mainCartContainer.addEventListener("click", surenadelete);
 
 function surenadelete(e) {
-  const itemdelbtn = e.target;
+  const itemDel = e.target;
 
-  if (itemdelbtn.alt === "del") {
-    const item = itemdelbtn.parentElement;
+  if (itemDel.alt === "del") {
+    const item = itemDel.parentElement;
     item.remove();
     updatethecart();
   }
@@ -83,42 +83,125 @@ function surenadelete(e) {
 
 //update cart
 function updatethecart() {
-  const cart_icontainer = document.querySelector(".cart-i-container");
-  const notif_count = document.querySelector(".beforesana");
-  let cartitemlength = cart_icontainer.children.length;
-  if (cartitemlength <= 0) {
+  const cartContainer = document.querySelector(".cart-i-container");
+  const notifCount = document.querySelector(".beforesana");
+  let cartItemLength = cartContainer.children.length;
+  if (cartItemLength <= 0) {
     document.querySelector("[data-empty]").style.display = "block";
     document.querySelector("[data-checkout]").style.display = "none";
-    cart_icontainer.classList.remove("csscart");
-    notif_count.style.display = "none";
+    cartContainer.classList.remove("csscart");
+    notifCount.style.display = "none";
   } else {
     document.querySelector("[data-empty]").style.display = "none";
     document.querySelector("[data-checkout]").style.display = "block";
-    cart_icontainer.classList.add("csscart");
-    notif_count.style.display = "block";
-    notif_count.innerText = cartitemlength;
+    cartContainer.classList.add("csscart");
+    notifCount.style.display = "block";
+    notifCount.innerText = cartItemLength;
   }
 }
 // image slider
-const slider_btns = document.querySelectorAll(".s-btn");
+function handleSliderButtonClick(btn) {
+  const offSet = btn.dataset.sbtns === "next" ? 1 : -1;
+  const sliderContainer = btn.closest("[data-sc-btns]").nextElementSibling;
 
-slider_btns.forEach((btn) => {
+  const activeimg = sliderContainer.querySelector("[data-active-pr]");
+  let indexOfActiveImg =
+    Array.from(sliderContainer.children).indexOf(activeimg) + offSet;
+
+  if (indexOfActiveImg < 0)
+    indexOfActiveImg = sliderContainer.children.length - 1;
+  if (indexOfActiveImg >= sliderContainer.children.length) indexOfActiveImg = 0;
+
+  // Adding dataset to the img
+  sliderContainer.children[indexOfActiveImg].dataset.activePr = true;
+  // Deleting activePr dataset from the current active slide
+  delete activeimg.dataset.activePr;
+}
+
+function handleThumbnailClick(
+  thumbnail,
+  index,
+  thumbnailImages,
+  modal = false
+) {
+  thumbnail.addEventListener("click", (e) => {
+    const offset = index;
+    const sliderContainer = document.querySelector(
+      `.big-product-img-container${modal ? "-modal" : ""}`
+    );
+    const activeBigImg = sliderContainer.querySelector("[data-active-pr]");
+    delete activeBigImg.dataset.activePr;
+
+    thumbnailImages.forEach((thumb) => {
+      delete thumb.dataset.activeThumb;
+    });
+
+    // Adding dataset active trigger to the img
+    e.target.dataset.activeThumb = true;
+    sliderContainer.children[offset].dataset.activePr = true;
+    // Deleting activePr dataset from the current active slide
+  });
+}
+
+const sliderBtns = document.querySelectorAll(".s-btn");
+const thumbnailImages = Array.from(
+  document.querySelector(".thumbnails-img-container").children
+);
+const bigProductContainer = document.querySelector(
+  ".big-product-img-container"
+).children;
+
+sliderBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    const offset = btn.dataset.sbtns === "next" ? 1 : -1;
-    const s_images_container = btn.closest("[data-sc-btns]").nextElementSibling;
-
-    const activeimg = s_images_container.querySelector("[data-active-pr]");
-    let indexofactiveimg =
-      [...s_images_container.children].indexOf(activeimg) + offset;
-
-    if (indexofactiveimg < 0)
-      indexofactiveimg = s_images_container.children.length - 1;
-    if (indexofactiveimg >= s_images_container.children.length)
-      indexofactiveimg = 0;
-
-    //adding dataset to the img
-    s_images_container.children[indexofactiveimg].dataset.activePr = true;
-    //deleting activePr dataset from current active slide
-    delete activeimg.dataset.activePr;
+    handleSliderButtonClick(btn);
   });
 });
+thumbnailImages.forEach((thumbnail, index) => {
+  handleThumbnailClick(thumbnail, index, thumbnailImages);
+});
+
+function setSelectActiveModalImages(offSet) {
+  const sliderContainer = Array.from(
+    document.querySelector(`.big-product-img-container-modal`).children
+  );
+  const thumbnailImages = Array.from(
+    document.querySelector(".thumbnails-img-container-modal").children
+  );
+  //deleting first
+  thumbnailImages.forEach((thumb) => {
+    delete thumb.dataset.activeThumb;
+  });
+  sliderContainer.forEach((img) => {
+    delete img.dataset.activePr;
+  });
+  //setting the active
+  console.log(thumbnailImages[offSet]);
+  thumbnailImages[offSet].dataset.activeThumb = true;
+  sliderContainer[offSet].dataset.activePr = true;
+}
+
+Array.from(bigProductContainer).forEach((bigProduct, index) => {
+  bigProduct.addEventListener("click", (event) => {
+    document.getElementById("myModal").style.display = "grid";
+    setSelectActiveModalImages(index);
+    const sliderBtnModal = document.querySelectorAll(".modal-slider-btn");
+    const thumbnailImagesModal = Array.from(
+      document.querySelector(".thumbnails-img-container-modal")?.children
+    );
+
+    sliderBtnModal?.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        handleSliderButtonClick(btn);
+      });
+    });
+
+    thumbnailImagesModal?.forEach((thumbnail, index) => {
+      handleThumbnailClick(thumbnail, index, thumbnailImagesModal, true);
+    });
+  });
+});
+
+// Function to close the modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
