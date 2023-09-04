@@ -37,6 +37,7 @@
    .checkout__btn{
       border-radius:10px;
       font-size: 1.1rem;
+      margin: 0 auto !important;
    }
    main{
       padding: 5rem;
