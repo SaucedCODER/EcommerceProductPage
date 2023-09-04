@@ -183,6 +183,10 @@ function setSelectActiveModalImages(offSet) {
 Array.from(bigProductContainer).forEach((bigProduct, index) => {
   bigProduct.addEventListener("click", (event) => {
     document.getElementById("myModal").style.display = "grid";
+    if (cartContainer.classList.contains("cart-visible")) {
+      cartContainer.classList.remove("cart-visible");
+    }
+
     setSelectActiveModalImages(index);
     const sliderBtnModal = document.querySelectorAll(".modal-slider-btn");
     const thumbnailImagesModal = Array.from(
