@@ -1,4 +1,4 @@
-# Frontend Mentor - E-commerce product page
+# Frontend Mentor - E-commerce product page - BUILT WITH HTML/ CSS/ JAVASCRIPT ONLY - [View Live](https://saucedcoder.github.io/EcommerceProductPage/) 
 
 ![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)
 
